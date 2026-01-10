@@ -10,6 +10,7 @@
             margin: 0;
             padding: 0;
             font-family: 'Montserrat', sans-serif;
+            background-color: black;
         }
 
        /* Liquid Navbar */
@@ -487,9 +488,13 @@
 
     /* Live Status Box */
     .live-status-container {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
         display: flex;
         align-items: center;
         gap: 15px;
+        z-index: 1000; /* Ensures it stays above other content */
     }
 
     .live-status {
@@ -577,18 +582,18 @@
     </style>
 </head>
 <body>
+    <div class="live-status-container">
+        <div class="live-status" id="liveStatus">
+            <span class="status-dot"></span>
+            <span class="status-text">...</span>
+        </div>
+    </div>
     <!-- Liquid Navbar -->
     <nav class="liquid-nav" id="liquidNav">
         <div class="nav-container">
             <div class="liquid-logo-container">
                 <img src="./pfp.webp" alt="Profile" class="pfp-logo">
                 <a href="#" class="liquid-logo">MRCIOS</a>
-                <div class="live-status-container">
-                    <div class="live-status" id="liveStatus">
-                        <span class="status-dot"></span>
-                        <span class="status-text">...</span>
-                    </div>
-                </div>
             </div>
             
             <div class="liquid-hamburger" id="hamburger">
