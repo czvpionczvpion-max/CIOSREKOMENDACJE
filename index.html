@@ -440,7 +440,7 @@
             flex-wrap: wrap;
             gap: 20px;
             justify-content: center;
-            margin-top: 20px;
+            margin-top: 60vh;
         }
         
         /* ... (pozostałe style bez zmian) ... */
@@ -470,7 +470,7 @@
             }
             
             .cards {
-                margin-top: -16vh;
+                margin-top: 35vh;
             }
             
             .main {
@@ -712,6 +712,20 @@
         }
     }
 
+    .cios-img {
+        width: 45vw;
+        position: absolute;
+        top: 13vh;
+        z-index: 2;
+    }
+
+    @media (max-width: 992px) {
+        .cios-img {
+            width: 100vw;
+            top: 12vh;
+        }
+    }
+
     </style>
 </head>
 <body>
@@ -737,30 +751,21 @@
             
             <ul class="liquid-menu" id="navMenu">
                 <li><a href="./index.html" class="active" style="font-weight: 800;">STRONA GŁÓWNA</a></li>
+                <li><a href="./wygrane.html">WASZE WYGRANE</a></li>
                 <li><a href="./giveaways.html">ROZDANIA</a></li>
-                <li><a href="./sociale.html">SOCIALE</a></li>
+                <li><a href="./wplacanie.html">JAK WPŁACAĆ/WYPŁACAĆ?</a></li>
                 <li><a href="./blokady.html">JAK OBEJŚĆ BLOKADY?</a></li>
-                <li><a href="./wplacanie.html">JAK WYPŁACAĆ/WPŁACAĆ?</a></li>
+                <li><a href="./sociale.html">SOCIALE</a></li>
                 <li><a href="./kontakt.html">KONTAKT</a></li>
             </ul>
         </div>
     </nav>
 
     <div class="main">
-        <!-- Nowa sekcja z napisami -->
-        <div class="hero-text">
-            <h1 class="hero-title">CIOS <span class="green-gradient">REKOMENDUJE</span></h1>
-            <h2 class="hero-subtitle">ODBIERZ NAJLEPSZE BONUSY</h2>
-        </div>
+        <img src="./napis1.png" alt="CIOS Logo" class="cios-img">
 
-               <div class="cards">
+        <div class="cards">
             <div class="card nvcasino">
-                <img src="./nvcasino_logo.webp">
-                <p class="bonus-box">150% + 50 FS</p>
-                <p class="bonus-description">użyj kodu CIOS</p>
-                <a class="bonus-button" href="https://games-win.com/24684/29327?lp=00">ODBIERZ</a>
-            </div>
-                        <div class="card nvcasino">
                 <img src="./legiano.webp">
                 <p class="bonus-box">100% + 200 FS</p>
                 <p class="bonus-description">użyj kodu CIOS</p>
@@ -783,10 +788,6 @@
                 <p class="bonus-box">300% + 200 FS</p>
                 <p class="bonus-description">użyj kodu CIOS</p>
                 <a class="bonus-button" href="https://dudsp.lynmonkel.com/?mid=332494_1975686">ODBIERZ</a>
-            </div>
-            <div class="card nvcasino">
-                <p class="bonus-box">NOWE KASYNO DOSTĘPNE WKRÓTCE</p>
-                <a class="bonus-button" style="margin-top: 32px;" href="">WKRÓTCE</a>
             </div>
         </div>
     </div>

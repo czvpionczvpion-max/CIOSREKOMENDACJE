@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="icon" type="image/svg+xml" href="./image.svg" />
-    <title>SOCIAL MEDIA - CIOS REKOMENDACJE</title>
+    <title>STRONA GŁÓWNA - CIOS REKOMENDACJE</title>
     <style>
         body {
             margin: 0;
@@ -185,6 +185,10 @@
 
         /* Liquid Mobile Menu */
         @media (max-width: 992px) {
+            .nav-container {
+                height: 70px;
+            }
+
             .liquid-hamburger {
                 display: flex;
             }
@@ -265,6 +269,7 @@
             text-align: center;
             outline: #4e6d2a 1px solid;
             box-shadow: 0px 0px 20px 0px rgba(78, 109, 42, 0.5);
+            height: 181px;
         }
 
         .card img {
@@ -390,178 +395,207 @@
             width: 100%;
             min-height: 100vh;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
+            justify-content: flex-start;
             align-items: center;
             background-image: url("./background.png");
             background-size: cover;
-            padding-top: 60px;
+            padding-top: 100px;
             padding-bottom: 60px;
         }
 
-        .socials-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 30px;
-            max-width: 1200px;
-            padding: 40px 20px;
-        }
-
-        .social-card {
-            background: rgba(19, 19, 19, 0.8);
-            border-radius: 20px;
-            padding: 40px 30px;
-            width: 250px;
+        .hero-text {
             text-align: center;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 1px solid rgba(78, 109, 42, 0.3);
-            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(10px);
-            position: relative;
-            overflow: hidden;
+            margin-bottom: 40px;
+            max-width: 800px;
+            padding: 0 20px;
+            z-index: 2;
         }
 
-        .social-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, #6b9d7d, #4e6d2a, #244626);
-        }
-
-        .social-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0px 20px 40px rgba(78, 109, 42, 0.4);
-            border-color: rgba(107, 157, 125, 0.6);
-        }
-
-        .social-icon {
-            font-size: 60px;
-            margin-bottom: 20px;
-            height: 80px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .social-card h2 {
-            color: white;
-            margin: 0 0 15px 0;
-            font-size: 24px;
-            font-weight: 700;
-        }
-
-        .social-card p {
-            color: #ccc;
-            font-size: 14px;
-            margin-bottom: 25px;
-            line-height: 1.6;
-            min-height: 60px;
-        }
-
-        .social-button {
-            display: inline-block;
-            padding: 12px 35px;
-            background: linear-gradient(135deg, #244626 0%, #4e6d2a 50%, #6b9d7d 100%);
-            background-size: 200% auto;
-            color: white;
-            text-decoration: none;
-            border-radius: 25px;
-            font-weight: 700;
-            font-size: 16px;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(107, 157, 125, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .social-button:hover {
-            background-position: right center;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(107, 157, 125, 0.5);
-        }
-
-        .social-button:active {
-            transform: translateY(-1px);
-        }
-
-        /* Kolory dla poszczególnych social mediów */
-        .telegram { color: #0088cc; }
-        .instagram { 
-            background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #b3bbb6 0%, #f7f8f5 50%, #ffffff 100%);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-        }
-        .tiktok { color: #000000; }
-        .youtube { color: #FF0000; }
-        .kick { color: #53FC18; }
-
-        .social-card.telegram-card:hover {
-            border-color: #0088cc;
-            box-shadow: 0px 20px 40px rgba(0, 136, 204, 0.3);
+            margin-bottom: 10px;
+            text-shadow: 0 0 30px rgba(107, 157, 125, 0.3);
+            letter-spacing: 1px;
         }
 
-        .social-card.instagram-card:hover {
-            border-color: #E1306C;
-            box-shadow: 0px 20px 40px rgba(225, 48, 108, 0.3);
+        .hero-subtitle {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fff;
+            background: linear-gradient(90deg, #ffffff, #d9e0dc);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
         }
 
-        .social-card.tiktok-card:hover {
-            border-color: #000000;
-            box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.3);
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 20px;
         }
+        
+        /* ... (pozostałe style bez zmian) ... */
 
-        .social-card.youtube-card:hover {
-            border-color: #FF0000;
-            box-shadow: 0px 20px 40px rgba(255, 0, 0, 0.3);
-        }
-
-        .social-card.kick-card:hover {
-            border-color: #53FC18;
-            box-shadow: 0px 20px 40px rgba(83, 252, 24, 0.3);
-        }
-
-        @media (max-width: 768px) {
-            .socials-container {
-                gap: 20px;
-                padding: 20px;
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 2.2rem;
             }
             
-            .social-card {
-                width: 100%;
-                max-width: 300px;
-                padding: 30px 20px;
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .main {
+                padding-top: 80px;
+                padding-bottom: 40px;
+            }
+            
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .cards {
+                margin-top: -16vh;
             }
             
             .main {
                 background-image: url("./mobile_bg.png");
                 background-position: center;
-                align-items: flex-start;
-                padding-top: 80px;
             }
         }
 
-        @media (max-width: 480px) {
-            .social-card {
-                padding: 25px 15px;
-            }
-            
-            .social-icon {
-                font-size: 50px;
-                height: 70px;
-            }
-            
-            .social-card h2 {
-                font-size: 20px;
-            }
-        }
+    .hero-text {
+        text-align: center;
+        margin-bottom: 40px;
+        max-width: 800px;
+        padding: 30px 40px;
+        background: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(10px);
+        border-radius: 25px;
+        border: 1px solid rgba(107, 157, 125, 0.3);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        position: relative;
+        overflow: hidden;
+        z-index: 2;
+        margin-top: 5vh;
+    }
 
-        /* Liquid Logo z PFP */
+    .hero-text::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, 
+            transparent, 
+            rgba(107, 157, 125, 0.1), 
+            transparent);
+        animation: liquid-flow 3s infinite linear;
+    }
+
+    .hero-title {
+        font-size: 3rem;
+        font-weight: 900;
+        background: linear-gradient(135deg, #ffffff 0%, #f9ffec 50%, #ffffff 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        margin-bottom: 10px;
+        text-shadow: 0 0 30px rgba(231, 231, 231, 0.692);
+        letter-spacing: 1px;
+    }
+
+    .hero-subtitle {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #fff;
+        background: linear-gradient(90deg, #ffffff, #d9e0dc);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    }
+
+    @keyframes liquid-flow {
+        0% { transform: translateX(-100%); }
+        100% { transform: translateX(100%); }
+    }
+
+    /* Responsywność */
+    @media (max-width: 992px) {
+        .hero-title {
+            font-size: 2.2rem;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2rem;
+        }
+        
+        .hero-text {
+            padding: 25px 30px;
+            margin: 0 20px;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .hero-text {
+            padding: 20px;
+            margin: 2vh 15px;
+        }
+        
+        .hero-title {
+            font-size: 2rem;
+        }
+        
+        .hero-subtitle {
+            font-size: 1rem;
+        }
+    }
+
+    .green-gradient {
+        background: linear-gradient(135deg, #7aa848 0%, #89bd4f 25%, #91e08f 50%, #8bc34a 75%, #a5d6a7 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        text-shadow: 
+            0 0 20px rgba(165, 218, 105, 0.8),
+            0 0 40px rgba(154, 245, 68, 0.733);
+        font-weight: 900;
+        display: inline-block;
+        position: relative;
+    }
+
+    @keyframes green-pulse {
+        0% {
+            text-shadow: 
+                0 0 20px rgba(149, 209, 81, 0.8),
+                0 0 40px rgba(133, 201, 158, 0.5),
+                0 0 60px rgba(171, 236, 97, 0.3);
+        }
+        100% {
+            text-shadow: 
+                0 0 25px rgb(99, 139, 53),
+                0 0 50px rgba(135, 196, 157, 0.8),
+                0 0 75px rgba(166, 230, 93, 0.5);
+        }
+    }
+
+    /* Liquid Logo z PFP */
     .liquid-logo-container {
         display: flex;
         align-items: center;
@@ -676,6 +710,272 @@
             gap: 10px;
         }
     }
+
+    /* Styl dla sekcji z wygranymi */
+.hero-description {
+    color: #ccc;
+    font-size: 1.1rem;
+    margin-top: 15px;
+    font-weight: 400;
+}
+
+.winnings-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.winning-card {
+    background: rgba(30, 30, 30, 0.8);
+    border-radius: 20px;
+    overflow: hidden;
+    width: 100%;
+    max-width: 500px;
+    border: 1px solid rgba(107, 157, 125, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease;
+}
+
+.winning-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(107, 157, 125, 0.5);
+    border-color: rgba(107, 157, 125, 0.6);
+}
+
+.winning-header {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background: rgba(40, 40, 40, 0.9);
+    border-bottom: 1px solid rgba(107, 157, 125, 0.2);
+}
+
+.winner-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 15px;
+    border: 2px solid #6b9d7d;
+}
+
+.winner-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.winner-info {
+    flex: 1;
+}
+
+.winner-info h3 {
+    color: white;
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.win-date {
+    color: #aaa;
+    font-size: 0.9rem;
+}
+
+.win-amount {
+    font-size: 1.5rem;
+    font-weight: 800;
+    padding: 5px 15px;
+    border-radius: 10px;
+    background: rgba(107, 157, 125, 0.1);
+    color: #6b9d7d;
+    border: 1px solid rgba(107, 157, 125, 0.3);
+}
+
+.winning-content {
+    padding: 20px;
+}
+
+.winning-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    border: 2px solid rgba(107, 157, 125, 0.3);
+}
+
+.winning-description {
+    color: #ddd;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.casino-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 15px;
+    background: rgba(107, 157, 125, 0.15);
+    border-radius: 20px;
+    border: 1px solid rgba(107, 157, 125, 0.3);
+}
+
+.casino-badge span {
+    color: #aaa;
+    font-size: 0.9rem;
+}
+
+.casino-badge strong {
+    color: white;
+    font-weight: 700;
+}
+
+/* Sekcja statystyk */
+.stats-section {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin: 50px 1px;
+    padding: 0 20px;
+}
+
+.stats-card {
+    background: rgba(30, 30, 30, 0.8);
+    border-radius: 15px;
+    padding: 25px;
+    text-align: center;
+    min-width: 200px;
+    border: 1px solid rgba(107, 157, 125, 0.2);
+    transition: all 0.3s ease;
+}
+
+.stats-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(107, 157, 125, 0.5);
+    box-shadow: 0 10px 25px rgba(107, 157, 125, 0.3);
+}
+
+.stats-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.stats-value {
+    font-size: 2.2rem;
+    margin: 10px 0;
+    color: #6b9d7d;
+    font-weight: 700;
+}
+
+.stats-label {
+    color: #ccc;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* Box motywacyjny */
+.motivation-box {
+    background: linear-gradient(135deg, rgba(40, 40, 40, 0.9), rgba(30, 30, 30, 0.9));
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    max-width: 600px;
+    margin: 40px auto;
+    border: 2px solid rgba(107, 157, 125, 0.4);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    position: relative;
+    overflow: hidden;
+}
+
+.motivation-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(107, 157, 125, 0.1), 
+        transparent);
+    animation: liquid-flow 4s infinite linear;
+}
+
+.motivation-box h3 {
+    color: white;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+.motivation-box p {
+    color: #ccc;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+/* Responsywność */
+@media (max-width: 992px) {
+    .winnings-container {
+        gap: 20px;
+    }
+    
+    .winning-card {
+        max-width: 100%;
+    }
+    
+    .stats-section {
+        gap: 20px;
+    }
+    
+    .stats-card {
+        min-width: 150px;
+        padding: 20px;
+    }
+    
+    .motivation-box {
+        margin: 30px 20px;
+        padding: 25px;
+    }
+}
+
+@media (max-width: 600px) {
+    .winning-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    
+    .winner-avatar {
+        margin-right: 0;
+    }
+    
+    .win-amount {
+        font-size: 1.3rem;
+    }
+    
+    .stats-section {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .stats-card {
+        max-width: 300px;
+    }
+    
+    .motivation-box h3 {
+        font-size: 1.5rem;
+    }
+    
+    .motivation-box p {
+        font-size: 1rem;
+    }
+}
+
     </style>
 </head>
 <body>
@@ -690,7 +990,7 @@
         <div class="nav-container">
             <div class="liquid-logo-container">
                 <img src="./pfp.webp" alt="Profile" class="pfp-logo">
-                <a href="#" class="liquid-logo">MRCIOS</a>
+                <a href="" class="liquid-logo">MRCIOS</a>
             </div>
             
             <div class="liquid-hamburger" id="hamburger">
@@ -701,67 +1001,136 @@
             
             <ul class="liquid-menu" id="navMenu">
                 <li><a href="./index.html" style="font-weight: 800;">STRONA GŁÓWNA</a></li>
-                <li><a href="./wygrane.html">WASZE WYGRANE</a></li>
+                <li><a href="./wygrane.html"  class="active">WASZE WYGRANE</a></li>
                 <li><a href="./giveaways.html">ROZDANIA</a></li>
                 <li><a href="./wplacanie.html">JAK WPŁACAĆ/WYPŁACAĆ?</a></li>
                 <li><a href="./blokady.html">JAK OBEJŚĆ BLOKADY?</a></li>
-                <li><a href="./sociale.html" class="active">SOCIALE</a></li>
+                <li><a href="./sociale.html">SOCIALE</a></li>
                 <li><a href="./kontakt.html">KONTAKT</a></li>
             </ul>
         </div>
     </nav>
 
     <div class="main">
-        <div class="socials-container">
-            <!-- Telegram -->
-            <div class="social-card telegram-card">
-                <div class="social-icon">
-                    <i class="fab fa-telegram telegram"></i>
+        <div class="hero-text">
+            <h1 class="hero-title">WASZE <span class="green-gradient">WYGRANE</span></h1>
+            <h2 class="hero-subtitle">ZOBACZ NAGRODY NASZYCH WIDZÓW</h2>
+            <p class="hero-description">Poniżej prezentujemy wybrane ostatnie wygrane naszych widzów<br>
+            Informacje o użytkownikach są ukryte ponieważ chcą zachować anonimowość</p>
+        </div>
+
+        <div class="winnings-container">
+            <!-- Zwycięzca 1 -->
+            <div class="winning-card">
+                <div class="winning-header">
+                    <div class="winner-avatar">
+                        <img src="./avatar.jpg" alt="Zwycięzca">
+                    </div>
+                    <div class="winner-info">
+                        <h3>@Anonim</h3>
+                        <span class="win-date">15.01.2024</span>
+                    </div>
+                    <div class="win-amount green-gradient">15,440 PLN</div>
                 </div>
-                <h2>TELEGRAM</h2>
-                <p>Dołącz do naszej grupy na Telegramie, aby otrzymywać najnowsze informacje, promocje i ekskluzywne oferty!</p>
-                <a href="https://t.me/jokercios" class="social-button" target="_blank">DOŁĄCZ</a>
-            </div>
-            
-            <!-- Instagram -->
-            <div class="social-card instagram-card">
-                <div class="social-icon">
-                    <i class="fab fa-instagram instagram"></i>
+                <div class="winning-content">
+                    <img src="./win1.jpg" alt="Zdjęcie wygranej" class="winning-image">
+                    <p class="winning-description">Mega wygrana na Mega Moolah! Gracz trafił jackpota progresywny po zaledwie 50 spinach.</p>
+                    <div class="casino-badge">
+                        <span>Kasyno:</span>
+                        <strong>Legiano</strong>
+                    </div>
                 </div>
-                <h2>INSTAGRAM</h2>
-                <p>Śledź nas na Instagramie, aby zobaczyć najnowsze aktualizacje, historie i ekskluzywne treści!</p>
-                <a href="https://www.instagram.com/mr_cios/" class="social-button" target="_blank">OBSERWUJ</a>
             </div>
-            
-            <!-- TikTok -->
-            <div class="social-card tiktok-card">
-                <div class="social-icon">
-                    <i class="fab fa-tiktok tiktok"></i>
+
+            <!-- Zwycięzca 2 -->
+            <div class="winning-card">
+                <div class="winning-header">
+                    <div class="winner-avatar">
+                        <img src="./avatar.jpg" alt="Zwycięzca">
+                    </div>
+                    <div class="winner-info">
+                        <h3>@Anonim</h3>
+                        <span class="win-date">12.01.2024</span>
+                    </div>
+                    <div class="win-amount green-gradient">2,528 PLN</div>
                 </div>
-                <h2>TIKTOK</h2>
-                <p>Odwiedź nasz TikTok, aby zobaczyć krótkie filmiki, porady i najnowsze trendy z branży!</p>
-                <a href="https://www.tiktok.com/@mr_cios" class="social-button" target="_blank">OBSERWUJ</a>
-            </div>
-            
-            <!-- YouTube -->
-            <div class="social-card youtube-card">
-                <div class="social-icon">
-                    <i class="fab fa-youtube youtube"></i>
+                <div class="winning-content">
+                    <img src="./win2.jpg" alt="Zdjęcie wygranej" class="winning-image">
+                    <p class="winning-description">Niesamowita seria wygranych na Book of Dead - 5 bonusów pod rząd!</p>
+                    <div class="casino-badge">
+                        <span>Kasyno:</span>
+                        <strong>SpinBetter</strong>
+                    </div>
                 </div>
-                <h2>YOUTUBE</h2>
-                <p>Subskrybuj nasz kanał YouTube, aby oglądać pełne rozgrywki, recenzje i poradniki!</p>
-                <a href="https://www.youtube.com/@JokerCios" class="social-button" target="_blank">SUBSKRYBUJ</a>
             </div>
-            
-            <!-- Kick -->
-            <div class="social-card kick-card">
-                <div class="social-icon">
-                    <img src="./kick.jpg" alt="Kick" style="width: 60px; height: 60px; border-radius: 10px;">
+
+            <!-- Zwycięzca 3 -->
+            <div class="winning-card">
+                <div class="winning-header">
+                    <div class="winner-avatar">
+                        <img src="./avatar.jpg" alt="Zwycięzca">
+                    </div>
+                    <div class="winner-info">
+                        <h3>@Anonim</h3>
+                        <span class="win-date">10.01.2024</span>
+                    </div>
+                    <div class="win-amount green-gradient">1,800 PLN</div>
                 </div>
-                <h2>KICK</h2>
-                <p>Dołącz do nas na platformie Kick, aby oglądać streamy na żywo i uczestniczyć w wydarzeniach!</p>
-                <a href="https://kick.com/mr-cios" class="social-button" target="_blank">OBSERWUJ</a>
+                <div class="winning-content">
+                    <img src="./win3.jpg" alt="Zdjęcie wygranej" class="winning-image">
+                    <p class="winning-description">Historyczna wygrana na Sweet Bonanza - pełna plansza bomb x5!</p>
+                    <div class="casino-badge">
+                        <span>Kasyno:</span>
+                        <strong>AllySpins</strong>
+                    </div>
+                </div>
             </div>
+
+            <!-- Zwycięzca 4 -->
+            <div class="winning-card">
+                <div class="winning-header">
+                    <div class="winner-avatar">
+                        <img src="./avatar.jpg" alt="Zwycięzca">
+                    </div>
+                    <div class="winner-info">
+                        <h3>@Anonim</h3>
+                        <span class="win-date">08.01.2024</span>
+                    </div>
+                    <div class="win-amount green-gradient">1,408 PLN</div>
+                </div>
+                <div class="winning-content">
+                    <img src="./win4.jpg" alt="Zdjęcie wygranej" class="winning-image">
+                    <p class="winning-description">Perfekcyjny bonus round na Gates of Olympus - 500x wygrana!</p>
+                    <div class="casino-badge">
+                        <span>Kasyno:</span>
+                        <strong>DudeSpins</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="stats-section">
+            <div class="stats-card">
+                <div class="stats-icon">💰</div>
+                <h3 class="stats-value green-gradient">30,200 PLN</h3>
+                <p class="stats-label">Łączna wartość wygranych</p>
+            </div>
+            <div class="stats-card">
+                <div class="stats-icon">👑</div>
+                <h3 class="stats-value green-gradient">24</h3>
+                <p class="stats-label">Szczęśliwych zwycięzców</p>
+            </div>
+            <div class="stats-card">
+                <div class="stats-icon">🎰</div>
+                <h3 class="stats-value green-gradient">7</h3>
+                <p class="stats-label">Różnych gier</p>
+            </div>
+        </div>
+
+        <div class="motivation-box">
+            <h3>🎉 Twoja wygrana może być następna!</h3>
+            <p>Dołącz do społeczności i odbierz swój bonus startowy już dziś!</p>
+            <a href="./index.html" class="bonus-button" style="margin-top: 15px;">ODBIERZ BONUS</a>
         </div>
     </div>
     <footer>
@@ -771,9 +1140,6 @@ Obowiązkiem użytkowników jest upewnienie się, że ich aktywność jest zgodn
 Zanim skorzystasz z jakichkolwiek ofert przedstawionych na tej stronie, gorąco rekomendujemy zweryfikowanie legalności hazardu online w Twojej lokalizacji.
         </p>
     </footer>
-
-    <!-- Font Awesome dla ikon -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <script>
     // Navbar scroll effect
@@ -864,6 +1230,7 @@ Zanim skorzystasz z jakichkolwiek ofert przedstawionych na tej stronie, gorąco 
     // Odświeżaj status co 60 sekund
     setInterval(checkKickLiveStatus, 60000);
 </script>
+    
 </body>
 
 </html>
