@@ -2,16 +2,22 @@
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="icon" type="image/svg+xml" href="./image.svg" />
     <title>STRONA GŁÓWNA - CIOS REKOMENDACJE</title>
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0;
             padding: 0;
             font-family: 'Montserrat', sans-serif;
             background-color: black;
+            overflow-x: hidden;
+            width: 100%;
         }
 
        /* Liquid Navbar */
@@ -187,7 +193,7 @@
         .code-requirement {
             width: 100%;
             max-width: 800px;
-            margin: 0 auto 40px;
+            margin: 30px auto 0;
             padding: 20px;
             background: rgba(22, 37, 26, 0.9);
             border-radius: 20px;
@@ -347,46 +353,35 @@
                 transform: rotate(-45deg) translate(6px, -6px);
                 background: linear-gradient(90deg, #ffffff, #ffffff);
             }
-            
-            .code-requirement {
-                margin: 0 15px 30px;
-                padding: 15px;
-            }
-            
-            .requirement-container {
-                flex-direction: column;
-                text-align: center;
-                gap: 15px;
-            }
-            
-            .requirement-text h3 {
-                font-size: 1.1rem;
-            }
-            
-            .warning-icon {
-                min-width: 40px;
-                min-height: 40px;
-            }
         }
 
         .main {
             width: 100%;
             min-height: 100vh;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
+            justify-content: flex-start;
             align-items: center;
             background-image: url("./background.png");
             background-size: cover;
-            padding-top: 60px; /* Dodajemy padding aby zawartość nie była przykryta przez navbar */
+            background-position: center;
+            background-repeat: no-repeat;
+            padding-top: 100px;
+            padding-bottom: 60px;
+            overflow-x: hidden;
         }
 
         .cards {
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
-            margin-top: 60vh;
             justify-content: center;
+            margin-top: 60vh;
+            width: 100%;
+            max-width: 1200px;
+            padding: 0 20px;
         }
+        
         .card {
             background: rgba(59, 59, 59, 0.8);
             border-radius: 10px;
@@ -397,6 +392,7 @@
             outline: #4e6d2a 1px solid;
             box-shadow: 0px 0px 20px 0px rgba(78, 109, 42, 0.5);
             height: 181px;
+            flex-shrink: 0;
         }
 
         .card img {
@@ -413,25 +409,6 @@
             font-size: 14px;
         }
 
-        @media (max-width: 600px) {
-            .card {
-                width: 140px;
-            }
-
-            .cards {
-                margin-top: 30vh;
-            }
-            
-            .main {
-                padding-top: 60px; /* Upewniamy się, że na mobile też jest padding */
-            }
-
-            .main {
-                background-image: url("./mobile_bg.png");
-                background-position: center;
-            }
-        }
-
         .about {
             width: 100%;
             background: #1a1a1a;
@@ -443,6 +420,7 @@
             display: flex;
             justify-content: center;
             gap: 35px;
+            flex-wrap: wrap;
         }
 
         @keyframes liquid-text {
@@ -453,13 +431,14 @@
         footer {
             background-image: url("./footer_bg.png");
             background-position: center top;
-            background-size: 100% auto;
+            background-size: cover;
             color: #888;
             text-align: center;
             padding: 20px;
             font-size: 12px;
             border-top: #466852 1px solid;
             box-shadow: 0px -5px 50px 0px rgb(58, 88, 64);
+            width: 100%;
         }
 
         .nvcasino {
@@ -518,36 +497,46 @@
             font-weight: 400;
         }
 
-        .main {
-            width: 100%;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: center;
-            background-image: url("./background.png");
-            background-size: cover;
-            padding-top: 100px;
-            padding-bottom: 60px;
-        }
-
         .hero-text {
             text-align: center;
             margin-bottom: 40px;
             max-width: 800px;
-            padding: 0 20px;
+            padding: 30px 40px;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
+            border-radius: 25px;
+            border: 1px solid rgba(107, 157, 125, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
             z-index: 2;
+            margin-top: 30vh;
+            width: 90%;
+        }
+
+        .hero-text::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(107, 157, 125, 0.1), 
+                transparent);
+            animation: liquid-flow 3s infinite linear;
         }
 
         .hero-title {
             font-size: 3rem;
             font-weight: 900;
-            background: linear-gradient(135deg, #b3bbb6 0%, #f7f8f5 50%, #ffffff 100%);
+            background: linear-gradient(135deg, #ffffff 0%, #f9ffec 50%, #ffffff 100%);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
             margin-bottom: 10px;
-            text-shadow: 0 0 30px rgba(107, 157, 125, 0.3);
+            text-shadow: 0 0 30px rgba(231, 231, 231, 0.692);
             letter-spacing: 1px;
         }
 
@@ -562,34 +551,164 @@
             text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
         }
 
-        .cards {
+        .green-gradient {
+            background: linear-gradient(135deg, #7aa848 0%, #89bd4f 25%, #91e08f 50%, #8bc34a 75%, #a5d6a7 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 
+                0 0 20px rgba(165, 218, 105, 0.8),
+                0 0 40px rgba(154, 245, 68, 0.733);
+            font-weight: 900;
+            display: inline-block;
+            position: relative;
+        }
+
+        @keyframes green-pulse {
+            0% {
+                text-shadow: 
+                    0 0 20px rgba(149, 209, 81, 0.8),
+                    0 0 40px rgba(133, 201, 158, 0.5),
+                    0 0 60px rgba(171, 236, 97, 0.3);
+            }
+            100% {
+                text-shadow: 
+                    0 0 25px rgb(99, 139, 53),
+                    0 0 50px rgba(135, 196, 157, 0.8),
+                    0 0 75px rgba(166, 230, 93, 0.5);
+            }
+        }
+
+        /* Liquid Logo z PFP */
+        .liquid-logo-container {
             display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-            margin-top: 60vh;
-        }
-        
-        /* ... (pozostałe style bez zmian) ... */
-
-        @media (max-width: 992px) {
-            .hero-title {
-                font-size: 2.2rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1.2rem;
-            }
+            align-items: center;
+            gap: 15px;
         }
 
-        @media (max-width: 600px) {
+        .pfp-logo {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1px solid transparent;
+            background: linear-gradient(135deg, #6b9d7d, #527960, #4e6d2a) border-box;
+            box-shadow: 0 0 15px rgba(107, 157, 125, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .pfp-logo:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 0 25px rgba(107, 157, 125, 0.8);
+        }
+
+        /* Live Status Box */
+        .live-status-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            z-index: 1000;
+        }
+
+        .live-status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 2px solid transparent;
+            animation: status-pulse 2s infinite;
+        }
+
+        .live-status.live {
+            background: rgba(0, 255, 0, 0.1);
+            color: #00ff00;
+            border-color: rgba(0, 255, 0, 0.3);
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+        }
+
+        .live-status.offline {
+            background: rgba(255, 0, 0, 0.1);
+            color: #ff4444;
+            border-color: rgba(255, 0, 0, 0.3);
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+        }
+
+        @keyframes status-pulse {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 30px rgba(0, 255, 0, 0.5);
+            }
+        }
+
+        .live-status.offline {
+            animation: none;
+        }
+
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            animation: pulse 1.5s infinite;
+        }
+
+        .live-status.live .status-dot {
+            background: #00ff00;
+            box-shadow: 0 0 10px #00ff00;
+        }
+
+        .live-status.offline .status-dot {
+            background: #ff4444;
+            box-shadow: 0 0 10px #ff4444;
+            animation: none;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.3);
+                opacity: 0.8;
+            }
+        }
+
+        .cios-img {
+            width: 45vw;
+            position: absolute;
+            top: 13vh;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        /* Responsywność dla telefonów */
+        @media (max-width: 768px) {
             .main {
                 padding-top: 80px;
                 padding-bottom: 40px;
+                background-image: url("./mobile_bg.png");
+            }
+            
+            .hero-text {
+                padding: 20px;
+                margin: 18vh 15px 20px;
+                width: calc(100% - 30px);
             }
             
             .hero-title {
-                font-size: 2.2rem;
+                font-size: 2rem;
             }
             
             .hero-subtitle {
@@ -597,262 +716,140 @@
             }
             
             .cards {
-                margin-top: 35vh;
+                margin-top: 30vh;
+                padding: 0 10px;
+                gap: 10px;
             }
             
-            .main {
-                background-image: url("./mobile_bg.png");
-                background-position: center;
+            .card {
+                width: calc(50% - 10px);
+                max-width: 180px;
+                min-width: 140px;
+                height: auto;
+                padding: 15px;
+            }
+            
+            .card img {
+                max-width: 100%;
+                height: auto;
+            }
+            
+            .bonus-box {
+                font-size: 14px;
+                padding: 8px;
+            }
+            
+            .bonus-description {
+                font-size: 12px;
+            }
+            
+            .bonus-button {
+                padding: 6px 20px;
+                font-size: 14px;
+                width: 100%;
+            }
+            
+            .code-requirement {
+                margin: 20px 15px 0;
+                width: calc(100% - 30px);
+                padding: 15px;
+            }
+            
+            .requirement-container {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+            
+            .requirement-text h3 {
+                font-size: 1rem;
+            }
+            
+            .requirement-text p {
+                font-size: 0.8rem;
+            }
+            
+            .warning-icon {
+                min-width: 40px;
+                min-height: 40px;
+            }
+            
+            .warning-icon svg {
+                width: 20px;
+                height: 20px;
+            }
+            
+            .cios-img {
+                width: 90vw;
+                top: 12vh;
+            }
+            
+            .live-status {
+                padding: 6px 12px;
+                font-size: 12px;
+            }
+            
+            .live-status-container {
+                gap: 10px;
+                bottom: 15px;
+                right: 15px;
+            }
+            
+            footer {
+                padding: 15px;
+                font-size: 10px;
+            }
+            
+            .liquid-logo {
+                font-size: 1.4rem;
+                padding: 8px 15px;
+            }
+            
+            .pfp-logo {
+                width: 40px;
+                height: 40px;
             }
         }
 
-        .hero-text {
-        text-align: center;
-        margin-bottom: 40px;
-        max-width: 800px;
-        padding: 30px 40px;
-        background: rgba(0, 0, 0, 0.6);
-        backdrop-filter: blur(10px);
-        border-radius: 25px;
-        border: 1px solid rgba(107, 157, 125, 0.3);
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        position: relative;
-        overflow: hidden;
-        z-index: 2;
-        margin-top: 30vh;
-    }
-
-    .hero-text::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(90deg, 
-            transparent, 
-            rgba(107, 157, 125, 0.1), 
-            transparent);
-        animation: liquid-flow 3s infinite linear;
-    }
-
-    .hero-title {
-        font-size: 3rem;
-        font-weight: 900;
-        background: linear-gradient(135deg, #ffffff 0%, #f9ffec 50%, #ffffff 100%);
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-        margin-bottom: 10px;
-        text-shadow: 0 0 30px rgba(231, 231, 231, 0.692);
-        letter-spacing: 1px;
-    }
-
-    .hero-subtitle {
-        font-size: 1.5rem;
-        font-weight: 700;
-        color: #fff;
-        background: linear-gradient(90deg, #ffffff, #d9e0dc);
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-        text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
-    }
-
-    @keyframes liquid-flow {
-        0% { transform: translateX(-100%); }
-        100% { transform: translateX(100%); }
-    }
-
-    /* Responsywność */
-    @media (max-width: 992px) {
-        .hero-title {
-            font-size: 2.2rem;
+        @media (max-width: 480px) {
+            .card {
+                width: calc(50% - 8px);
+                min-width: 130px;
+                padding: 12px;
+            }
+            
+            .bonus-box {
+                font-size: 12px;
+            }
+            
+            .hero-title {
+                font-size: 1.8rem;
+            }
+            
+            .cards {
+                gap: 8px;
+            }
         }
-        
-        .hero-subtitle {
-            font-size: 1.2rem;
+
+        /* Większe telefony */
+        @media (min-width: 769px) and (max-width: 992px) {
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .hero-text {
+                padding: 25px 30px;
+                width: calc(100% - 40px);
+            }
+            
+            .cios-img {
+                width: 70vw;
+            }
         }
-        
-        .hero-text {
-            padding: 25px 30px;
-            margin: 0 20px;
-        }
-    }
-
-    @media (max-width: 600px) {
-        .hero-text {
-            padding: 20px;
-            margin: 18vh 15px;
-        }
-        
-        .hero-title {
-            font-size: 2rem;
-        }
-        
-        .hero-subtitle {
-            font-size: 1rem;
-        }
-    }
-
-    .green-gradient {
-        background: linear-gradient(135deg, #7aa848 0%, #89bd4f 25%, #91e08f 50%, #8bc34a 75%, #a5d6a7 100%);
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-        text-shadow: 
-            0 0 20px rgba(165, 218, 105, 0.8),
-            0 0 40px rgba(154, 245, 68, 0.733);
-        font-weight: 900;
-        display: inline-block;
-        position: relative;
-    }
-
-    @keyframes green-pulse {
-        0% {
-            text-shadow: 
-                0 0 20px rgba(149, 209, 81, 0.8),
-                0 0 40px rgba(133, 201, 158, 0.5),
-                0 0 60px rgba(171, 236, 97, 0.3);
-        }
-        100% {
-            text-shadow: 
-                0 0 25px rgb(99, 139, 53),
-                0 0 50px rgba(135, 196, 157, 0.8),
-                0 0 75px rgba(166, 230, 93, 0.5);
-        }
-    }
-
-    /* Liquid Logo z PFP */
-    .liquid-logo-container {
-        display: flex;
-        align-items: center;
-        gap: 15px;
-    }
-
-    .pfp-logo {
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        object-fit: cover;
-        border: 1px solid transparent;
-        background: linear-gradient(135deg, #6b9d7d, #527960, #4e6d2a) border-box;
-        box-shadow: 0 0 15px rgba(107, 157, 125, 0.5);
-        transition: all 0.3s ease;
-    }
-
-    .pfp-logo:hover {
-        transform: scale(1.1) rotate(5deg);
-        box-shadow: 0 0 25px rgba(107, 157, 125, 0.8);
-    }
-
-    /* Live Status Box */
-    .live-status-container {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        display: flex;
-        align-items: center;
-        gap: 15px;
-        z-index: 1000; /* Ensures it stays above other content */
-    }
-
-    .live-status {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        padding: 8px 16px;
-        border-radius: 20px;
-        font-weight: 700;
-        font-size: 14px;
-        transition: all 0.3s ease;
-        backdrop-filter: blur(10px);
-        border: 2px solid transparent;
-        animation: status-pulse 2s infinite;
-    }
-
-    .live-status.live {
-        background: rgba(0, 255, 0, 0.1);
-        color: #00ff00;
-        border-color: rgba(0, 255, 0, 0.3);
-        box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
-    }
-
-    .live-status.offline {
-        background: rgba(255, 0, 0, 0.1);
-        color: #ff4444;
-        border-color: rgba(255, 0, 0, 0.3);
-        box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
-    }
-
-    @keyframes status-pulse {
-        0%, 100% {
-            box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
-        }
-        50% {
-            box-shadow: 0 0 30px rgba(0, 255, 0, 0.5);
-        }
-    }
-
-    .live-status.offline {
-        animation: none;
-    }
-
-    .status-dot {
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        animation: pulse 1.5s infinite;
-    }
-
-    .live-status.live .status-dot {
-        background: #00ff00;
-        box-shadow: 0 0 10px #00ff00;
-    }
-
-    .live-status.offline .status-dot {
-        background: #ff4444;
-        box-shadow: 0 0 10px #ff4444;
-        animation: none;
-    }
-
-    @keyframes pulse {
-        0%, 100% {
-            transform: scale(1);
-            opacity: 1;
-        }
-        50% {
-            transform: scale(1.3);
-            opacity: 0.8;
-        }
-    }
-
-    /* Responsywność dla status boxa */
-    @media (max-width: 992px) {
-        .live-status {
-            padding: 6px 12px;
-            font-size: 12px;
-        }
-        
-        .live-status-container {
-            gap: 10px;
-        }
-    }
-
-    .cios-img {
-        width: 45vw;
-        position: absolute;
-        top: 13vh;
-        z-index: 2;
-    }
-
-    @media (max-width: 992px) {
-        .cios-img {
-            width: 100vw;
-            top: 12vh;
-        }
-    }
-
     </style>
 </head>
 <body>
@@ -891,46 +888,36 @@
     <div class="main">
         <img src="./napis1.png" alt="CIOS Logo" class="cios-img">
 
-         <div class="main">
-        <img src="./napis1.png" alt="CIOS Logo" class="cios-img">
-
         <div class="cards">
-            <!-- Komunikat o wymaganym kodzie -->
-            <div class="code-requirement">
-                <div class="requirement-container">
-                    <div class="warning-icon">
-                        <svg viewBox="0 0 24 24" width="24" height="24">
-                            <path fill="currentColor" d="M12,2L1,21H23M12,6L19.53,19H4.47M11,10V14H13V10M11,16V18H13V16"/>
-                        </svg>
-                    </div>
-                    <div class="requirement-text">
-                        <h3>Aby uzyskać bonusy oraz udział w rozdaniach <span class="highlight-code">WYMAGANE JEST WPISANIE/UŻYCIE KODU <span class="cios-code">CIOS</span></span></h3>
-                        <p>Kod należy wpisać podczas rejestracji w polu "Kod promocyjny" lub "Bonus code".</p>
-                    </div>
-                </div>
-            </div>
-            
-
             <div class="card nvcasino">
-                <img src="./spinbetter_logo.png">
-                <p class="bonus-box">150% + 111 FS</p>
-                <p class="bonus-description">użyj kodu CIOS</p>
-                <a class="bonus-button" href="https://redirspinner.com/2ASM?p=%2Fregistration%2F">ODBIERZ</a>
-            </div>
-                        <div class="card nvcasino">
-                <img src="./nvcasino_logo.webp">
+                <img src="./nvcasino_logo.webp" alt="NV Casino">
                 <p class="bonus-box">400% + 450 FS</p>
                 <p class="bonus-description">użyj kodu CIOS</p>
                 <a class="bonus-button" href="https://swp.lynmonkel.com/?mid=348501_2014527">ODBIERZ</a>
             </div>
-
+        </div>
+        
+        <!-- Komunikat o wymaganym kodzie przeniesiony pod bonusy -->
+        <div class="code-requirement">
+            <div class="requirement-container">
+                <div class="warning-icon">
+                    <svg viewBox="0 0 24 24" width="24" height="24">
+                        <path fill="currentColor" d="M12,2L1,21H23M12,6L19.53,19H4.47M11,10V14H13V10M11,16V18H13V16"/>
+                    </svg>
+                </div>
+                <div class="requirement-text">
+                    <h3>Aby uzyskać bonusy oraz udział w rozdaniach <span class="highlight-code">WYMAGANE JEST WPISANIE/UŻYCIE KODU <span class="cios-code">CIOS</span></span></h3>
+                    <p>Kod należy wpisać podczas rejestracji w polu "Kod promocyjny" lub "Bonus code".</p>
+                </div>
+            </div>
         </div>
     </div>
+    
     <footer>
         <p>
             <b style="color: #fff;">Ważna informacja:</b> Ta strona internetowa prezentuje informacje o ekskluzywnych kasynach oraz zawiera odnośniki partnerskie, które są przeznaczone wyłącznie dla osób przebywających w regionach, gdzie internetowe gry losowe są dozwolone przez prawo.
-Obowiązkiem użytkowników jest upewnienie się, że ich aktywność jest zgodna z lokalnymi przepisami. Nie zachęcamy ani nie popieramy nielegalnych form hazardu.
-Zanim skorzystasz z jakichkolwiek ofert przedstawionych na tej stronie, gorąco rekomendujemy zweryfikowanie legalności hazardu online w Twojej lokalizacji.
+            Obowiązkiem użytkowników jest upewnienie się, że ich aktywność jest zgodna z lokalnymi przepisami. Nie zachęcamy ani nie popieramy nielegalnych form hazardu.
+            Zanim skorzystasz z jakichkolwiek ofert przedstawionych na tej stronie, gorąco rekomendujemy zweryfikowanie legalności hazardu online w Twojej lokalizacji.
         </p>
     </footer>
 
@@ -983,10 +970,7 @@ Zanim skorzystasz z jakichkolwiek ofert przedstawionych na tej stronie, gorąco 
         const statusText = document.querySelector('.status-text');
         
         try {
-            // Zastąp 'mrcios' nazwą twojego kanału na Kick
             const kickUsername = 'mr-cios';
-            
-            // Kick API endpoint - użyjemy GraphQL API Kicka
             const response = await fetch(`https://kick.com/api/v1/channels/${kickUsername}`);
             
             if (!response.ok) {
@@ -996,16 +980,13 @@ Zanim skorzystasz z jakichkolwiek ofert przedstawionych na tej stronie, gorąco 
             const data = await response.json();
             
             if (data.livestream && data.livestream.is_live) {
-                // Streamer jest live
                 liveStatus.className = 'live-status live';
                 statusText.textContent = 'LIVE';
                 
-                // Opcjonalnie: pobierz tytuł streamu
                 if (data.livestream.session_title) {
                     liveStatus.setAttribute('title', data.livestream.session_title);
                 }
             } else {
-                // Streamer jest offline
                 liveStatus.className = 'live-status offline';
                 statusText.textContent = 'OFFLINE';
             }
@@ -1017,13 +998,8 @@ Zanim skorzystasz z jakichkolwiek ofert przedstawionych na tej stronie, gorąco 
         }
     }
 
-    // Sprawdź status przy załadowaniu strony
     document.addEventListener('DOMContentLoaded', checkKickLiveStatus);
-    
-    // Odświeżaj status co 60 sekund
     setInterval(checkKickLiveStatus, 60000);
-</script>
-    
+    </script>
 </body>
-
 </html>
