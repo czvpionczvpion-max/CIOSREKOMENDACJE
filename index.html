@@ -386,115 +386,92 @@
             background: rgba(59, 59, 59, 0.8);
             border-radius: 10px;
             padding: 20px;
-            width: 200px;
+            width: 220px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             text-align: center;
             outline: #4e6d2a 1px solid;
             box-shadow: 0px 0px 20px 0px rgba(78, 109, 42, 0.5);
-            height: 181px;
-            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            height: 240px;
+        }
+
+        .card-img-container {
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 5px;
         }
 
         .card img {
-            width: 100%;
+            max-width: 100%;
+            max-height: 50px;
+            width: auto;
+            height: auto;
             border-radius: 10px;
+            object-fit: contain;
         }
 
-        .card h2 {
-            color: white;
-            margin: 10px 0;
-        }
-        .card p {
-            color: white;
-            font-size: 14px;
-        }
-
-        .about {
-            width: 100%;
-            background: #1a1a1a;
-            text-align: center;
-        }
-
-        .socials {
-            padding: 20px;
+        .card-content {
+            flex: 1;
             display: flex;
-            justify-content: center;
-            gap: 35px;
-            flex-wrap: wrap;
-        }
-
-        @keyframes liquid-text {
-            0% { filter: hue-rotate(0deg); }
-            100% { filter: hue-rotate(360deg); }
-        }
-
-        footer {
-            background-image: url("./footer_bg.png");
-            background-position: center top;
-            background-size: cover;
-            color: #888;
-            text-align: center;
-            padding: 20px;
-            font-size: 12px;
-            border-top: #466852 1px solid;
-            box-shadow: 0px -5px 50px 0px rgb(58, 88, 64);
-            width: 100%;
-        }
-
-        .nvcasino {
-            background-image: url("./nvcasino.png");
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .bonus-box {
             border-radius: 15px;
-            padding: 10px;
+            padding: 8px 5px;
             background: rgba(59, 121, 87, 0.1);
             border: 1px solid rgba(69, 141, 81, 0.2);
             font-weight: 900;
+            font-size: 16px;
+            margin: 5px 0;
+            color: white;
+            text-decoration: underline;
+            text-decoration-color: white;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 2px;
+        }
+
+        .bonus-description {
+            color: white;
+            font-size: 13px;
+            margin: 2px 0 5px;
+            font-weight: 400;
+            text-decoration: underline;
+            text-decoration-color: white;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 1px;
         }
 
         .bonus-button {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            margin-top: 6px;
-            padding: 7px 28px;
+            padding: 7px 15px;
             background: linear-gradient(135deg, #244626 0%, #4e6d2a 50%, #6b9d7d 100%);
             background-size: 200% auto;
             color: white;
             text-decoration: none;
             border-radius: 24px;
             font-weight: 800;
-            font-size: 16px;
+            font-size: 15px;
             border: none;
             cursor: pointer;
             position: relative;
             overflow: hidden;
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(107, 157, 125, 0.3);
+            width: 100%;
+            margin-top: auto;
         }
 
         .bonus-button:hover {
             background-position: right center;
-            transform: translateY(-3px);
+            transform: translateY(-2px);
             box-shadow: 0 8px 20px rgba(107, 157, 125, 0.4);
-        }
-
-        .bonus-button:active {
-            transform: translateY(-1px);
-            box-shadow: 0 2px 10px rgba(107, 157, 125, 0.3);
-        }
-
-        .bonus-button:hover::after {
-            opacity: 1;
-            transform: rotate(20deg);
-        }
-
-        .bonus-description {
-            color: #ccc;
-            font-size: 14px;
-            margin-top: -10px;
-            font-weight: 400;
         }
 
         .hero-text {
@@ -549,34 +526,6 @@
             background-clip: text;
             color: transparent;
             text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
-        }
-
-        .green-gradient {
-            background: linear-gradient(135deg, #7aa848 0%, #89bd4f 25%, #91e08f 50%, #8bc34a 75%, #a5d6a7 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-shadow: 
-                0 0 20px rgba(165, 218, 105, 0.8),
-                0 0 40px rgba(154, 245, 68, 0.733);
-            font-weight: 900;
-            display: inline-block;
-            position: relative;
-        }
-
-        @keyframes green-pulse {
-            0% {
-                text-shadow: 
-                    0 0 20px rgba(149, 209, 81, 0.8),
-                    0 0 40px rgba(133, 201, 158, 0.5),
-                    0 0 60px rgba(171, 236, 97, 0.3);
-            }
-            100% {
-                text-shadow: 
-                    0 0 25px rgb(99, 139, 53),
-                    0 0 50px rgba(135, 196, 157, 0.8),
-                    0 0 75px rgba(166, 230, 93, 0.5);
-            }
         }
 
         /* Liquid Logo z PFP */
@@ -639,6 +588,7 @@
             color: #ff4444;
             border-color: rgba(255, 0, 0, 0.3);
             box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+            animation: none;
         }
 
         @keyframes status-pulse {
@@ -648,10 +598,6 @@
             50% {
                 box-shadow: 0 0 30px rgba(0, 255, 0, 0.5);
             }
-        }
-
-        .live-status.offline {
-            animation: none;
         }
 
         .status-dot {
@@ -718,35 +664,39 @@
             .cards {
                 margin-top: 30vh;
                 padding: 0 10px;
-                gap: 10px;
+                gap: 15px;
             }
             
             .card {
-                width: calc(50% - 10px);
-                max-width: 180px;
-                min-width: 140px;
-                height: auto;
-                padding: 15px;
+                width: calc(50% - 15px);
+                max-width: 200px;
+                min-width: 150px;
+                height: 260px;
+                padding: 15px 12px;
+            }
+            
+            .card-img-container {
+                height: 50px;
             }
             
             .card img {
-                max-width: 100%;
-                height: auto;
+                max-height: 40px;
             }
             
             .bonus-box {
                 font-size: 14px;
-                padding: 8px;
+                padding: 6px 3px;
+                text-underline-offset: 2px;
             }
             
             .bonus-description {
-                font-size: 12px;
+                font-size: 11px;
+                text-underline-offset: 2px;
             }
             
             .bonus-button {
-                padding: 6px 20px;
-                font-size: 14px;
-                width: 100%;
+                padding: 6px 10px;
+                font-size: 13px;
             }
             
             .code-requirement {
@@ -813,9 +763,10 @@
 
         @media (max-width: 480px) {
             .card {
-                width: calc(50% - 8px);
-                min-width: 130px;
-                padding: 12px;
+                width: calc(50% - 10px);
+                min-width: 135px;
+                padding: 12px 8px;
+                height: 250px;
             }
             
             .bonus-box {
@@ -827,11 +778,19 @@
             }
             
             .cards {
-                gap: 8px;
+                gap: 10px;
+            }
+            
+            .bonus-description {
+                font-size: 10px;
+            }
+            
+            .bonus-button {
+                font-size: 12px;
+                padding: 5px 8px;
             }
         }
 
-        /* Większe telefony */
         @media (min-width: 769px) and (max-width: 992px) {
             .hero-title {
                 font-size: 2.2rem;
@@ -849,6 +808,28 @@
             .cios-img {
                 width: 70vw;
             }
+            
+            .card {
+                width: 200px;
+                height: 250px;
+            }
+        }
+
+        footer {
+            background-image: url("./footer_bg.png");
+            background-position: center top;
+            background-size: cover;
+            color: #888;
+            text-align: center;
+            padding: 20px;
+            font-size: 12px;
+            border-top: #466852 1px solid;
+            box-shadow: 0px -5px 50px 0px rgb(58, 88, 64);
+            width: 100%;
+        }
+
+        .nvcasino {
+            background-image: url("./nvcasino.png");
         }
     </style>
 </head>
@@ -890,10 +871,29 @@
 
         <div class="cards">
             <div class="card nvcasino">
-                <img src="./nvcasino_logo.webp" alt="NV Casino">
-                <p class="bonus-box">400% + 450 FS</p>
-                <p class="bonus-description">użyj kodu CIOS</p>
-                <a class="bonus-button" href="https://swp.lynmonkel.com/?mid=348501_2014527">ODBIERZ</a>
+                <div class="card-img-container">
+                    <img src="./nvcasino_logo.webp" alt="NV Casino">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <p class="bonus-box">400% + 450 FS</p>
+                        <p class="bonus-description">użyj kodu CIOS</p>
+                    </div>
+                    <a class="bonus-button" href="https://swp.lynmonkel.com/?mid=348501_2014527">ODBIERZ</a>
+                </div>
+            </div>
+            
+            <div class="card nvcasino">
+                <div class="card-img-container">
+                    <img src="./logo.svg" alt="NV Casino">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <p class="bonus-box">150% OD 50ZŁ</p>
+                        <p class="bonus-description">użyj kodu CIOS</p>
+                    </div>
+                    <a class="bonus-button" href="https://flagmanway1.com/ccbb65e64">ODBIERZ</a>
+                </div>
             </div>
         </div>
         
